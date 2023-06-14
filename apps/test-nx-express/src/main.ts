@@ -1,3 +1,10 @@
+// server starts up find when this import is used
+import { testNodeLib } from '@test-nx-express/test-node-lib'
+
+// error is thrown when this import is used
+// `Watch error: Daemon closed the connection`
+// import { testJsLib } from '@test-nx-express/test-js-lib'
+
 /**
  * This is not a production server yet!
  * This is only a minimal backend to get started.
@@ -11,7 +18,7 @@ const app = express();
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to test-nx-express!' });
+  res.send({ message: 'Welcome to test-nx-express!' + testNodeLib() });
 });
 
 const port = process.env.PORT || 3333;

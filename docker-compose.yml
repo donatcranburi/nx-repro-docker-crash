@@ -1,0 +1,14 @@
+services:
+  test-nx-express:
+    container_name: test-nx-express
+    build:
+      dockerfile: './docker/test-nx-express/Dockerfile'
+    # environment:
+    # - NX_DAEMON=false
+    ports:
+      - 3333:3333
+    volumes:
+      # mount docker scripts
+      - ./docker/test-nx-express/scripts/:/var/test-nx-express/scripts/
+      # mount code
+      - ./:/var/test-nx-express/code
